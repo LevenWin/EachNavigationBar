@@ -278,15 +278,17 @@ extension EachNavigationBar {
     
     func adjustsLayout() {
         guard let navigationBar = superNavigationBar else { return }
-        
         if automaticallyAdjustsPosition {
+            let statusBarHeight = UIApplication.shared.statusBarFrame.height
             frame = navigationBar.frame
-            frame.origin.y = barMinY
+            frame.origin.y = statusBarHeight
         } else {
             frame.size = navigationBar.frame.size
         }
         
         frame.size.height = navigationBar.frame.height + _additionalHeight
+               
+               
     }
 }
 
